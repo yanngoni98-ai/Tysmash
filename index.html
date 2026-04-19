@@ -4,290 +4,426 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ty Smash — Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>Ty Smash – Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --noir: #111111;
-  --card: #1e1e1e;
-  --orange: #E8891A;
-  --orange2: #F5A623;
-  --rouge: #8B1A1A;
-  --creme: #F5EDD6;
-  --gris: rgba(245,237,214,0.48);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  background: var(--noir);
-  color: var(--creme);
-  font-family: 'Nunito', sans-serif;
-  min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse at top left, rgba(232,137,26,0.07) 0%, transparent 45%),
-    radial-gradient(ellipse at bottom right, rgba(139,26,26,0.1) 0%, transparent 45%);
+background-color: #1a1a1a;
+color: #f0ead6;
+font-family: ‘Inter’, sans-serif;
+max-width: 480px;
+margin: 0 auto;
+padding: 0 0 40px;
 }
-body::after {
-  content:''; position:fixed; inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none; z-index:999;
-}
-.page { max-width:860px; margin:0 auto; padding:0 14px 70px; }
 
-.header { display:flex; flex-direction:column; align-items:center; padding:40px 20px 24px; }
+/* HEADER */
+.header {
+text-align: center;
+padding: 36px 20px 20px;
+}
+.header-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 2.6rem;
+font-weight: 700;
+color: #c9a84c;
+letter-spacing: 0.04em;
+line-height: 1.1;
+}
 .header-sub {
-font-family:‘Pacifico’, cursive;
-font-size:.85rem; color:var(–orange);
-margin-top:10px; text-align:center; letter-spacing:.05em;
-}
-.header-divider {
-width:65%; height:1px;
-background:linear-gradient(90deg,transparent,var(–orange),transparent);
-margin:18px auto 0; opacity:.4;
+font-family: ‘Playfair Display’, serif;
+font-style: italic;
+font-size: 0.95rem;
+color: #a89060;
+margin-top: 6px;
+letter-spacing: 0.06em;
 }
 
-.terroir-banner {
-margin:16px 0 0;
-border:1px solid rgba(232,137,26,.22);
-border-radius:12px; padding:14px 20px;
-display:grid; grid-template-columns:1fr 1fr; gap:9px 12px;
-background:rgba(255,255,255,0.03);
+/* ENGAGEMENTS */
+.engagements {
+margin: 20px 16px 28px;
+background: #222;
+border: 1px solid #c9a84c55;
+border-radius: 14px;
+padding: 18px 20px;
+display: flex;
+flex-direction: column;
+gap: 10px;
 }
-.terroir-item {
-display:flex; align-items:center; justify-content:center;
-gap:7px; font-size:.74rem; font-weight:800;
-letter-spacing:.07em; text-transform:uppercase;
-color:var(–orange2); white-space:nowrap;
+.engagement-item {
+font-size: 0.82rem;
+font-weight: 700;
+letter-spacing: 0.12em;
+color: #f0ead6;
+text-transform: uppercase;
 }
 
-.section { margin:32px 0 0; }
-.section-head { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
-.section-emoji { font-size:1.5rem; line-height:1; }
-.section-title {
-font-family:‘Pacifico’, cursive;
-font-size:1.6rem; color:var(–creme);
-line-height:1.1;
-text-shadow:2px 2px 0 rgba(0,0,0,.5);
+/* SECTION HEADER */
+.section-header {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 0 16px;
+margin: 28px 0 14px;
 }
-.section-rule { flex:1; height:1px; background:linear-gradient(90deg,rgba(232,137,26,.5),transparent); }
+.section-header .emoji {
+font-size: 1.6rem;
+line-height: 1;
+}
+.section-header h2 {
+font-family: ‘Playfair Display’, serif;
+font-style: italic;
+font-size: 1.55rem;
+font-weight: 400;
+color: #f0ead6;
+flex: 1;
+}
+.section-header::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: linear-gradient(to right, #c9a84c88, transparent);
+margin-left: 8px;
+}
 
-.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:13px; }
+/* ITEM CARD */
 .card {
-background:var(–card);
-border:1px solid rgba(232,137,26,.13);
-border-radius:14px; padding:18px 18px 16px;
-position:relative; overflow:hidden;
-display:flex; flex-direction:column;
-transition:transform .22s, box-shadow .22s, border-color .22s;
+background: #222;
+border: 1px solid #c9a84c44;
+border-radius: 14px;
+margin: 0 16px 12px;
+padding: 18px 18px 14px;
 }
-.card::before {
-content:’’; position:absolute; top:0;left:0;right:0; height:3px;
-background:linear-gradient(90deg,var(–rouge),var(–orange));
-opacity:0; transition:opacity .22s;
+.card-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 8px;
+margin-bottom: 8px;
 }
-.card:hover { transform:translateY(-4px); border-color:rgba(232,137,26,.4); box-shadow:0 16px 40px rgba(0,0,0,.6); }
-.card:hover::before { opacity:1; }
-
-.card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:6px; }
 .card-name {
-font-family:‘Nunito’, sans-serif;
-font-weight:900;
-font-size:1.05rem; color:var(–creme); line-height:1.2;
+font-size: 1.05rem;
+font-weight: 700;
+color: #ffffff;
+line-height: 1.3;
 }
-.badge-veg {
-font-size:.58rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase;
-padding:3px 8px; border-radius:20px; white-space:nowrap; flex-shrink:0; margin-top:4px;
-background:rgba(44,90,50,.6); color:#b8ffb8; border:1px solid rgba(58,125,68,.7);
+.badge {
+background: #2d5a2d;
+color: #7ec87e;
+font-size: 0.65rem;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 3px 9px;
+border-radius: 20px;
+white-space: nowrap;
+flex-shrink: 0;
+margin-top: 2px;
 }
-.card-desc { font-size:.75rem; color:var(–gris); line-height:1.55; margin-bottom:14px; font-weight:600; flex:1; }
-.card-prices { border-top:1px solid rgba(245,237,214,.07); padding-top:12px; display:flex; flex-direction:column; gap:7px; }
-.price-row { display:flex; justify-content:space-between; align-items:center; }
-.price-label { font-size:.75rem; color:var(–gris); font-weight:700; }
-.price-val { font-family:‘Nunito’, sans-serif; font-weight:800; font-size:.95rem; color:var(–orange2); }
-.price-val.big { font-size:1.25rem; color:var(–orange); text-shadow:0 0 18px rgba(232,137,26,.45); }
-
-.pills { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:10px; }
-.pill {
-background:var(–card);
-border:1px solid rgba(232,137,26,.11);
-border-radius:10px; padding:12px 15px;
-display:flex; justify-content:space-between; align-items:center;
-transition:border-color .2s, transform .2s;
+.card-ingredients {
+font-size: 0.82rem;
+color: #a89878;
+line-height: 1.55;
+margin-bottom: 14px;
 }
-.pill:hover { border-color:rgba(232,137,26,.35); transform:translateY(-2px); }
-.pill-name { font-weight:800; font-size:.84rem; color:var(–creme); }
-.pill-sub { font-size:.68rem; color:var(–gris); font-weight:600; margin-top:2px; }
-.pill-price { font-family:‘Nunito’, sans-serif; font-weight:800; font-size:.9rem; color:var(–orange2); white-space:nowrap; margin-left:8px; }
+.card-divider {
+border: none;
+border-top: 1px solid #333;
+margin: 10px 0;
+}
+.price-row {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+padding: 3px 0;
+}
+.price-label {
+font-size: 0.82rem;
+color: #a89878;
+}
+.price-value {
+font-size: 1rem;
+font-weight: 700;
+color: #f0ead6;
+letter-spacing: 0.01em;
+}
 
-.footer { text-align:center; margin-top:52px; }
-.footer hr { width:45%; border:none; border-top:1px solid rgba(232,137,26,.2); margin:0 auto 16px; }
-.footer p { font-size:.72rem; color:rgba(245,237,214,.25); letter-spacing:.12em; text-transform:uppercase; }
+/* VARIANTE VÉGÉTAL dans une carte fusionnée */
+.variant-separator {
+border: none;
+border-top: 1px dashed #c9a84c44;
+margin: 14px 0 12px;
+}
+.variant-label {
+display: flex;
+align-items: center;
+gap: 6px;
+margin-bottom: 6px;
+}
+.variant-label .badge {
+margin-top: 0;
+}
+.variant-name {
+font-size: 0.9rem;
+font-weight: 700;
+color: #e0dcc8;
+}
 
-@media(max-width:480px){
-.cards { grid-template-columns:1fr; }
-.terroir-banner { grid-template-columns:1fr; }
-.section-title { font-size:1.35rem; }
+/* GRID 2 colonnes (accompagnements, sauces, desserts, boissons) */
+.grid-2 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin: 0 16px 12px;
+}
+.mini-card {
+background: #222;
+border: 1px solid #c9a84c44;
+border-radius: 12px;
+padding: 14px 14px 12px;
+}
+.mini-card-top {
+display: flex;
+align-items: center;
+gap: 6px;
+margin-bottom: 4px;
+}
+.mini-card-name {
+font-size: 0.9rem;
+font-weight: 700;
+color: #ffffff;
+line-height: 1.25;
+}
+.mini-card-desc {
+font-size: 0.75rem;
+color: #a89878;
+margin-bottom: 6px;
+line-height: 1.4;
+}
+.mini-card-price {
+font-size: 0.95rem;
+font-weight: 700;
+color: #f0ead6;
+}
+
+/* FOOTER */
+footer {
+text-align: center;
+padding: 32px 20px 10px;
+font-size: 0.72rem;
+color: #6b5f45;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+line-height: 1.8;
 }
 </style>
 
 </head>
 <body>
-<div class="page">
+
+<!-- HEADER -->
 
 <div class="header">
-  <div class="header-sub">Smash Burgers & Hot Dogs • Haute-Corrèze</div>
-  <div class="header-divider"></div>
+  <div class="header-title">TY SMASH</div>
+  <div class="header-sub">Smash Burgers &amp; Hot Dogs • Haute-Corrèze</div>
 </div>
 
-<div class="terroir-banner">
-  <div class="terroir-item">🥩 Viandes françaises</div>
-  <div class="terroir-item">🍞 Pains label rouge</div>
-  <div class="terroir-item">🥔 Pommes de terre de Corrèze</div>
-  <div class="terroir-item">🧑‍🍳 Fait maison</div>
+<!-- ENGAGEMENTS -->
+
+<div class="engagements">
+  <div class="engagement-item">🥩 Viandes françaises</div>
+  <div class="engagement-item">🍞 Pains Label Rouge</div>
+  <div class="engagement-item">🥔 Pommes de terre de Corrèze</div>
+  <div class="engagement-item">👨‍🍳 Fait maison</div>
 </div>
 
 <!-- SMASH BURGERS -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🍔</span><h2 class="section-title">Smash Burgers</h2><div class="section-rule"></div></div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-top"><div class="card-name">Smash Klassik</div></div>
-      <div class="card-desc">Buns potato label rouge • 2 steaks bœuf frais • 2 tranches cheddar mature • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">9,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">12,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">14,00 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="card-name">Smash BBQ Bacon</div></div>
-      <div class="card-desc">Buns potato label rouge • 2 steaks bœuf frais • 2 tranches cheddar mature • Compote d'oignon maison • Oignon frit • Bacon crispy • Sauce Smokey BBQ maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">10,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">13,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">14,50 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="card-name">Smash Krok Comté</div></div>
-      <div class="card-desc">Rolls potato label rouge • Jambon français label rouge • 2 tranches Comté AOP fondu</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">6,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">9,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">10,50 €</span></div>
-      </div>
-    </div>
-  </div>
+<div class="section-header">
+  <span class="emoji">🍔</span>
+  <h2>Smash Burgers</h2>
+</div>
+
+<div class="card">
+  <div class="card-name">Smash Klassik</div>
+  <div class="card-ingredients">Buns potato label rouge • 2 steaks bœuf frais • 2 tranches cheddar mature • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">9,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">12,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">14,00 €</span></div>
+</div>
+
+<div class="card">
+  <div class="card-name">Smash BBQ Bacon</div>
+  <div class="card-ingredients">Buns potato label rouge • 2 steaks bœuf frais • 2 tranches cheddar mature • Compote d'oignon maison • Oignon frit • Bacon • Sauce Smokey BBQ maison</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">10,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">13,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">14,50 €</span></div>
+</div>
+
+<div class="card">
+  <div class="card-name">Smash Krok</div>
+  <div class="card-ingredients">Buns potato label rouge • Jambon français • 2 tranches Comté AOP fondu</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">6,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">9,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">10,50 €</span></div>
 </div>
 
 <!-- HOT DOGS -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🌭</span><h2 class="section-title">HD — Hot Dogs</h2><div class="section-rule"></div></div>
-  <div class="cards">
-    <div class="card">
-      <div class="card-top"><div class="card-name">HD Klassik</div></div>
-      <div class="card-desc">Rolls potato label rouge • Saucisse de volaille française • Compote d'oignon maison • Oignon frit • Ketchup • Moutarde • Sauce Ty Smash maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">6,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">9,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">10,50 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="card-name">HD Oignon</div></div>
-      <div class="card-desc">Rolls potato label rouge • Saucisse de volaille française • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">7,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">9,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">11,00 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top"><div class="card-name">HD BBQ Bacon</div></div>
-      <div class="card-desc">Rolls potato label rouge • Saucisse de volaille française • Compote d'oignon maison • Oignon frit • Bacon crispy • Sauce Smokey BBQ maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">7,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">10,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">11,50 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">HD Klassik Végétal</div>
-        <span class="badge-veg">🌱 Végétal</span>
-      </div>
-      <div class="card-desc">Rolls potato label rouge • Saucisse végétarienne • Compote d'oignon maison • Oignon frit • Ketchup • Moutarde • Sauce Ty Smash maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">7,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">10,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">11,50 €</span></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">HD Oignon Végétal</div>
-        <span class="badge-veg">🌱 Végétal</span>
-      </div>
-      <div class="card-desc">Rolls potato label rouge • Saucisse végétarienne • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
-      <div class="card-prices">
-        <div class="price-row"><span class="price-label">Seul</span><span class="price-val big">8,00 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-val">10,50 €</span></div>
-        <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-val">12,00 €</span></div>
-      </div>
-    </div>
+<div class="section-header">
+  <span class="emoji">🌭</span>
+  <h2>HD — Hot Dogs</h2>
+</div>
+
+<!-- HD Klassik + variante Végétal fusionnés -->
+
+<div class="card">
+  <div class="card-name">HD Klassik</div>
+  <div class="card-ingredients">Rolls potato label rouge • Saucisse de volaille française • Oignon frit • Ketchup • Moutarde • Sauce Ty Smash maison</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">6,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">9,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">10,50 €</span></div>
+
+  <hr class="variant-separator">
+  <div class="variant-label">
+    <span class="variant-name">Option Végétal</span>
+    <span class="badge">🌱 Végétal</span>
   </div>
+  <div class="card-ingredients" style="margin-bottom:10px;">Saucisse végétarienne • Compote d'oignon maison • Oignon frit • Ketchup • Moutarde • Sauce Ty Smash maison</div>
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">7,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">10,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">11,50 €</span></div>
+</div>
+
+<!-- HD Oignon + variante Végétal fusionnés -->
+
+<div class="card">
+  <div class="card-name">HD Oignon</div>
+  <div class="card-ingredients">Rolls potato label rouge • Saucisse de volaille française • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">7,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">9,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">11,00 €</span></div>
+
+  <hr class="variant-separator">
+  <div class="variant-label">
+    <span class="variant-name">Option Végétal</span>
+    <span class="badge">🌱 Végétal</span>
+  </div>
+  <div class="card-ingredients" style="margin-bottom:10px;">Saucisse végétarienne • Compote d'oignon maison • Oignon frit • Sauce Ty Smash maison</div>
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">8,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">10,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">12,00 €</span></div>
+</div>
+
+<div class="card">
+  <div class="card-name">HD BBQ Bacon</div>
+  <div class="card-ingredients">Rolls potato label rouge • Saucisse de volaille française • Compote d'oignon maison • Oignon frit • Bacon • Sauce Smokey BBQ maison</div>
+  <hr class="card-divider">
+  <div class="price-row"><span class="price-label">Seul</span><span class="price-value">7,50 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement</span><span class="price-value">10,00 €</span></div>
+  <div class="price-row"><span class="price-label">+ Accompagnement + Boisson</span><span class="price-value">11,50 €</span></div>
 </div>
 
 <!-- ACCOMPAGNEMENTS -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🍟</span><h2 class="section-title">Accompagnements</h2><div class="section-rule"></div></div>
-  <div class="pills">
-    <div class="pill"><div><div class="pill-name">🍟 Frites</div><div class="pill-sub">Pommes de terre de Corrèze</div></div><div class="pill-price">3,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">🥗 Coleslaw</div><div class="pill-sub">Maison</div></div><div class="pill-price">2,50 €</div></div>
+<div class="section-header">
+  <span class="emoji">🍟</span>
+  <h2>Accompagnements</h2>
+</div>
+<div class="grid-2">
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🍟</span><span class="mini-card-name">Frites</span></div>
+    <div class="mini-card-desc">Pommes de terre de Corrèze</div>
+    <div class="mini-card-price">3,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🥗</span><span class="mini-card-name">Coleslaw</span></div>
+    <div class="mini-card-desc">Maison</div>
+    <div class="mini-card-price">2,50 €</div>
   </div>
 </div>
 
-<!-- SAUCES -->
+<!-- SAUCES MAISON -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🫙</span><h2 class="section-title">Sauces Maison</h2><div class="section-rule"></div></div>
-  <div class="pills">
-    <div class="pill"><div><div class="pill-name">Sauce Ty Smash</div><div class="pill-sub">Recette maison</div></div><div class="pill-price">0,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">Sauce Smokey BBQ</div><div class="pill-sub">Recette maison</div></div><div class="pill-price">0,50 €</div></div>
+<div class="section-header">
+  <span class="emoji">🫙</span>
+  <h2>Sauces Maison</h2>
+</div>
+<div class="grid-2">
+  <div class="mini-card">
+    <div class="mini-card-name">Sauce Ty Smash</div>
+    <div class="mini-card-desc">Recette maison</div>
+    <div class="mini-card-price">0,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-name">Sauce Smokey BBQ</div>
+    <div class="mini-card-desc">Recette maison</div>
+    <div class="mini-card-price">0,50 €</div>
   </div>
 </div>
 
-<!-- DESSERTS -->
+<!-- DESSERTS MAISON -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🍪</span><h2 class="section-title">Desserts Maison</h2><div class="section-rule"></div></div>
-  <div class="pills">
-    <div class="pill"><div><div class="pill-name">🍪 Cookie</div><div class="pill-sub">Maison</div></div><div class="pill-price">2,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">🍫 Brownie</div><div class="pill-sub">Maison</div></div><div class="pill-price">2,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">🍋 Cake Citron</div><div class="pill-sub">Maison</div></div><div class="pill-price">2,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">🍎 Pom'Pote</div><div class="pill-sub">Pour les p'tits</div></div><div class="pill-price">1,00 €</div></div>
+<div class="section-header">
+  <span class="emoji">🍪</span>
+  <h2>Desserts Maison</h2>
+</div>
+<div class="grid-2">
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🍪</span><span class="mini-card-name">Cookie</span></div>
+    <div class="mini-card-desc">Maison</div>
+    <div class="mini-card-price">2,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🍫</span><span class="mini-card-name">Brownie</span></div>
+    <div class="mini-card-desc">Maison</div>
+    <div class="mini-card-price">2,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🍎</span><span class="mini-card-name">Pom'Pote</span></div>
+    <div class="mini-card-desc">Pour les p'tits</div>
+    <div class="mini-card-price">1,00 €</div>
   </div>
 </div>
 
 <!-- BOISSONS -->
 
-<div class="section">
-  <div class="section-head"><span class="section-emoji">🥤</span><h2 class="section-title">Boissons</h2><div class="section-rule"></div></div>
-  <div class="pills">
-    <div class="pill"><div><div class="pill-name">🥤 Canette</div></div><div class="pill-price">2,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">💧 Eau</div></div><div class="pill-price">1,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">☕ Café</div></div><div class="pill-price">1,50 €</div></div>
-    <div class="pill"><div><div class="pill-name">🍺 Bière</div><div class="pill-sub">À venir</div></div><div class="pill-price">— €</div></div>
+<div class="section-header">
+  <span class="emoji">🥤</span>
+  <h2>Boissons</h2>
+</div>
+<div class="grid-2">
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🥤</span><span class="mini-card-name">Canette</span></div>
+    <div class="mini-card-price">2,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>💧</span><span class="mini-card-name">Eau</span></div>
+    <div class="mini-card-price">1,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>☕</span><span class="mini-card-name">Café</span></div>
+    <div class="mini-card-price">1,50 €</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-card-top"><span>🍺</span><span class="mini-card-name">Bière</span></div>
+    <div class="mini-card-desc">À venir</div>
+    <div class="mini-card-price">— €</div>
   </div>
 </div>
 
-<div class="footer">
-  <hr>
-  <p>Ty Smash • Haute-Corrèze 🔥 Produits locaux & français • Fait maison • Prix TTC</p>
-</div>
+<!-- FOOTER -->
 
-</div>
+<footer>
+  TY SMASH • HAUTE-CORRÈZE 🔥<br>
+  PRODUITS LOCAUX &amp; FRANÇAIS • FAIT MAISON • PRIX TTC
+</footer>
+
 </body>
 </html>
